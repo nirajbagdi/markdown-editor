@@ -1,0 +1,58 @@
+@import 'base';
+
+html {
+    box-sizing: border-box;
+    font-size: 56.25%;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-sans-primary;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: $color-white;
+
+    overflow-x: hidden;
+}
+
+// prettier-ignore
+h1, h2, h3, h4 {
+    font-family: $font-sans-secondary;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+h1 {
+    font-size: 1.8rem;
+    letter-spacing: 4.2px;
+}
+
+h2 {
+    font-family: $font-sans-primary;
+    font-size: 1.6rem;
+    letter-spacing: 2.4px;
+}
+
+// prettier-ignore
+button, input {
+    font: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+}
+
+main {
+    transition: $sidebar-transition;
+
+    &.collapse {
+        transform: translateX(270px);
+    }
+}

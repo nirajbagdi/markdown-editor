@@ -1,0 +1,20 @@
+$font-sans-primary: 'Roboto', sans-serif;
+$font-sans-secondary: 'Commissioner', sans-serif;
+$font-serif: 'Roboto Slab', serif;
+
+$sidebar-transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+$color-accent: #e46643;
+$color-white: #fff;
+
+@mixin tablet {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 700px) {
+        @content;
+    }
+}

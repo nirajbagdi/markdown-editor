@@ -1,0 +1,48 @@
+@import 'base';
+
+.btnFill {
+    background-color: $color-accent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    padding: 1.6rem 2rem;
+    border-radius: 6px;
+
+    transition: background-color 0.4s ease;
+
+    &:hover,
+    &:active {
+        background-color: #f39765;
+    }
+
+    @include mobile {
+        padding: 1.2rem 1.4rem;
+        // prettier-ignore
+        span { display: none; }
+    }
+}
+
+.btnTransparent {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:active {
+        background-color: #1d1f22;
+    }
+
+    @include mobile {
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+}
