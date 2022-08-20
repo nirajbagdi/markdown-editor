@@ -1,0 +1,68 @@
+@import '../base';
+
+.editorHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.8rem 1.6rem;
+    background-color: #1d1f22;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            color: #7c8187;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.6rem;
+        }
+
+        button {
+            width: 3.6rem;
+            height: 3.6rem;
+
+            &:hover {
+                background-color: #2b2d31;
+            }
+        }
+    }
+}
+
+.editorMain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .editorPreview,
+    .editorTextarea {
+        padding-block: 1.6rem;
+        padding-inline: 3.2rem;
+        height: calc(100vh - 81.56px - 46.77px);
+    }
+
+    .editorTextarea {
+        border-right: 1px solid #5a6069;
+
+        textarea {
+            font-family: 'Roboto Mono', monospace;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border: none;
+            background: transparent;
+            color: #c1c4cb;
+            line-height: 1.8;
+            resize: none;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .editorPreview {
+        color: #7c8187;
+        line-height: 1.8;
+        font-family: $font-serif;
+    }
+}

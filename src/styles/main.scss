@@ -51,6 +51,8 @@ button, input {
 
 main {
     transition: $sidebar-transition;
+    background: #151619;
+    min-height: 100vh;
 
     &.collapse {
         transform: translateX(270px);
