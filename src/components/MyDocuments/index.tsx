@@ -1,5 +1,5 @@
 import styles from 'styles/components/aside.module.scss';
-import utilStyles from 'styles/utils.module.scss';
+import utilStyles from 'styles/components/utils.module.scss';
 import { DocumentsList, ThemeToggle } from 'components';
 
 type Props = {
