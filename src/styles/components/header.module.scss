@@ -96,6 +96,10 @@
 
         // prettier-ignore
         &:not(:last-child) { margin-bottom: 0.6rem; }
+
+        @include mobile {
+            transform-origin: 4px;
+        }
     }
 
     // prettier-ignore
