@@ -5,4 +5,4 @@ export { default as MyDocuments } from './MyDocuments';
 export { default as DocumentsList } from './MyDocuments/DocumentsList';
 export { default as ThemeToggle } from './MyDocuments/ThemeToggle';
 export { default as Modal } from './Modal';
-export { default as DeleteDocument } from './DeleteDocument';
+export { default as DeleteModal } from './DeleteModal';
