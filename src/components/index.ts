@@ -6,3 +6,4 @@ export { default as DocumentsList } from './MyDocuments/DocumentsList';
 export { default as ThemeToggle } from './MyDocuments/ThemeToggle';
 export { default as Modal } from './Modal';
 export { default as DeleteModal } from './DeleteModal';
+export { default as DownloadToast } from './DownloadToast';

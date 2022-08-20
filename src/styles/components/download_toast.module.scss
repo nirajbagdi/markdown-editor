@@ -1,0 +1,24 @@
+@import '../base';
+
+.downloadToast {
+    background-color: #35393f;
+    padding: 3.2rem;
+    border-radius: 8px;
+
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    width: 320px;
+
+    p {
+        font-family: $font-sans-secondary;
+        color: #c1c4cb;
+        line-height: 1.5;
+        margin-bottom: 2.4rem;
+    }
+
+    p + button {
+        width: 100%;
+    }
+}

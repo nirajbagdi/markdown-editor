@@ -78,6 +78,14 @@
     @include mobile {
         gap: 1.2rem;
     }
+
+    button:nth-child(2) {
+        @include mobile {
+            padding: 1.2rem 1.4rem;
+            // prettier-ignore
+            span { display: none; }
+        }
+    }
 }
 
 .hamburger {

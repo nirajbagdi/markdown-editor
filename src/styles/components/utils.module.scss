@@ -17,12 +17,6 @@
     &:active {
         background-color: #f39765;
     }
-
-    @include mobile {
-        padding: 1.2rem 1.4rem;
-        // prettier-ignore
-        span { display: none; }
-    }
 }
 
 .btnTransparent {
