@@ -1,0 +1,162 @@
+@import '../base';
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .col1 {
+        border-right: 2px solid #35393f;
+    }
+}
+
+.colHeader {
+    background-color: #1d1f22;
+    padding: 0.8rem 2.4rem;
+    height: 4.8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+        color: #7c8187;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.6rem;
+    }
+
+    button {
+        width: 3.6rem;
+        height: 3.6rem;
+
+        &:hover {
+            background-color: #2b2d31;
+        }
+    }
+}
+
+.preview,
+.editor {
+    padding: 1.6rem 2.4rem;
+    height: calc(100vh - 81.56px - 43.19px);
+}
+
+.editor {
+    textarea {
+        font-family: 'Roboto Mono', monospace;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        background: transparent;
+        color: #c1c4cb;
+        line-height: 1.8;
+        resize: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.preview {
+    color: #7c8187;
+    line-height: 1.8;
+    font-family: $font-serif;
+
+    color: #c1c4cb;
+
+    /* STYLING MARKDOWN ELEMENTS */
+    // prettier-ignore
+    h1, h2, h3, h4, h5, h6 {
+        color: $color-white;
+        margin-bottom: 0.2rem;
+    }
+
+    // prettier-ignore
+    h4, h5, h6 {
+        margin-bottom: 0.8rem;
+    }
+
+    h2 {
+        color: #7c8187;
+        font-weight: 400;
+        font-size: 3.2rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 2.4rem;
+    }
+
+    h5 {
+        font-size: 2rem;
+    }
+
+    h6 {
+        font-size: 1.6rem;
+        color: $color-accent;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 2.4rem;
+    }
+
+    ul,
+    ol {
+        margin-left: 4.8rem;
+        list-style: none;
+        margin-bottom: 2.4rem;
+    }
+
+    ul {
+        li {
+            position: relative;
+
+            &::before {
+                content: '';
+                top: 1.5rem;
+                left: -2rem;
+                position: absolute;
+                width: 0.5rem;
+                height: 0.5rem;
+                background-color: $color-accent;
+                border-radius: 100%;
+            }
+        }
+    }
+
+    ol {
+        counter-reset: list;
+
+        li {
+            position: relative;
+
+            &::before {
+                counter-increment: list;
+                content: counter(list) '.';
+                position: absolute;
+                top: 0;
+                left: -2rem;
+                color: $color-accent;
+            }
+        }
+    }
+
+    blockquote {
+        background-color: #2b2d31;
+        padding: 2.4rem;
+        border-radius: 6px;
+        border-left: 5px solid $color-accent;
+        font-weight: 500;
+        margin-bottom: 1.6rem;
+    }
+
+    a {
+        color: inherit;
+    }
+}
