@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Header, MyDocuments, MarkdownEditor } from 'components';
+import { Header, MyDocuments } from 'components';
 
 const App = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -12,7 +12,6 @@ const App = () => {
 
             <main className={showMenu ? 'collapse' : ''}>
                 <Header showMenu={showMenu} toggleShowMenu={toggleShowMenu} />
-                <MarkdownEditor />
             </main>
         </>
     );

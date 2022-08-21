@@ -9,10 +9,10 @@ type Props = {
 const MyDocuments: React.FC<Props> = ({ expand }) => {
     return (
         <aside className={`${styles.aside} ${expand ? styles.open : ''}`}>
-            <h1>Markdown</h1>
+            <h1 className={utilStyles.headingSans}>Markdown</h1>
 
             <header>
-                <h2>My Documents</h2>
+                <h2 className={utilStyles.headingSans}>My Documents</h2>
                 <button className={utilStyles.btnFill}>+&nbsp;New Document</button>
             </header>
 

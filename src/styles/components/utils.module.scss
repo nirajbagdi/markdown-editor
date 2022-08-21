@@ -1,5 +1,12 @@
 @import '../base';
 
+.headingSans {
+    font-family: $font-sans-secondary;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
 .btnFill {
     background-color: $color-accent;
 

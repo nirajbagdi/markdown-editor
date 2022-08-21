@@ -1,4 +1,5 @@
 import styles from 'styles/components/header.module.scss';
+import utilStyles from 'styles/components/utils.module.scss';
 import { ReactComponent as IconDocument } from 'assets/icon-document.svg';
 import { HamburgerButton, DocumentActions } from 'components';
 
@@ -14,7 +15,7 @@ const Header: React.FC<Props> = ({ showMenu, toggleShowMenu }) => {
         <header className={classes.join(' ')}>
             <HamburgerButton onToggle={toggleShowMenu} />
 
-            <h1>Markdown</h1>
+            <h1 className={utilStyles.headingSans}>Markdown</h1>
 
             <div className={styles.documentInfo}>
                 <IconDocument />
