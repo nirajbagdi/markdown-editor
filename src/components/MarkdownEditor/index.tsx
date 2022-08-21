@@ -7,7 +7,7 @@ import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg'
 
 type Props = {};
 
-const MarkdownEditor: React.FC<Props> = ({}) => {
+const MarkdownEditor: React.FC<Props> = () => {
     const [markdownText, setMarkdownText] = useState('');
 
     const handleMarkdownTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
