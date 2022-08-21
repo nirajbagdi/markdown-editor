@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import styles from 'styles/components/markdown_editor.module.scss';
 import utilStyles from 'styles/components/utils.module.scss';
 import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg';
@@ -5,6 +8,12 @@ import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg'
 type Props = {};
 
 const MarkdownEditor: React.FC<Props> = ({}) => {
+    const [markdownText, setMarkdownText] = useState('');
+
+    const handleMarkdownTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setMarkdownText(event.target!.value);
+    };
+
     return (
         <div className={styles.grid}>
             <div className={styles.col1}>
@@ -13,7 +22,7 @@ const MarkdownEditor: React.FC<Props> = ({}) => {
                 </div>
 
                 <div className={styles.editor}>
-                    <textarea></textarea>
+                    <textarea value={markdownText} onChange={handleMarkdownTextChange}></textarea>
                 </div>
             </div>
 
@@ -26,7 +35,9 @@ const MarkdownEditor: React.FC<Props> = ({}) => {
                     </button>
                 </div>
 
-                <div className={styles.preview}></div>
+                <div className={styles.preview}>
+                    <ReactMarkdown children={markdownText} remarkPlugins={[remarkGfm]} />
+                </div>
             </div>
         </div>
     );
