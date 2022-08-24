@@ -1,9 +1,11 @@
 import styles from 'styles/components/aside.module.scss';
+import { useDocumentsCtx } from 'context';
 import { ReactComponent as IconDocument } from 'assets/icon-document.svg';
-import markdownData from 'data/data.json';
 
 const DocumentsList = () => {
-    const documentsListContent = markdownData.map(document => (
+    const documentsCtx = useDocumentsCtx();
+
+    const documentsListContent = documentsCtx.documents.map(document => (
         <li key={document.id} className={styles.documentItem}>
             <IconDocument />
 

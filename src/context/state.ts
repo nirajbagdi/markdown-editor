@@ -1,3 +1,9 @@
-export type ContextState = {};
+import { MarkdownDocument } from 'models';
 
-export const initialState: ContextState = {};
+export type ContextState = {
+    documents: MarkdownDocument[];
+};
+
+export const initialState: ContextState = {
+    documents: []
+};
