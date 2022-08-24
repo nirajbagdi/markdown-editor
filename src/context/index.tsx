@@ -9,5 +9,14 @@ export const useDocumentsCtx = () => useContext(DocumentsContext);
 
 export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     const [documents, setDocuments] = useState(documentsData);
-    return <DocumentsContext.Provider value={{ documents }}>{children}</DocumentsContext.Provider>;
+    const [activeDocId, setActiveDocId] = useState(documentsData[0].id);
+
+    const activeDocument = documents.find(doc => doc.id === activeDocId) ?? null;
+    const changeActiveDocument = (docId: string) => setActiveDocId(docId);
+
+    return (
+        <DocumentsContext.Provider value={{ documents, activeDocument, changeActiveDocument }}>
+            {children}
+        </DocumentsContext.Provider>
+    );
 };
