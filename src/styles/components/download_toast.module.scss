@@ -10,6 +10,14 @@
     right: 30px;
 
     width: 320px;
+    z-index: 8;
+
+    transition: transform 650ms ease-in-out;
+    transform: translateY(300px);
+
+    &.slideIn {
+        transform: translateY(0);
+    }
 
     p {
         font-family: $font-sans-secondary;

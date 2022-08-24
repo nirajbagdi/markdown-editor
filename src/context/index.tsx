@@ -12,8 +12,10 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     const [documents, setDocuments] = useState(documentsData);
     const [activeDocId, setActiveDocId] = useState(documentsData[0].id);
     const [updatedDocument, setUpdatedDocument] = useState<MarkdownDocument | null>(null);
+    const [hasSavedDoc, setHasSavedDoc] = useState(false);
 
     const activeDocument = documents.find(doc => doc.id === activeDocId) ?? null;
+    let toastTimer: NodeJS.Timeout | null = null;
 
     useEffect(() => {
         setUpdatedDocument(activeDocument);
@@ -22,6 +24,14 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     const changeActiveDocument = (docId: string) => setActiveDocId(docId);
 
     const saveDocument = () => {
+        setHasSavedDoc(
+            updatedDocument?.content !== activeDocument?.content ||
+                updatedDocument?.name !== activeDocument?.name
+        );
+
+        if (toastTimer !== null) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => setHasSavedDoc(false), 4000);
+
         setDocuments(currDocs => {
             return currDocs.map(doc =>
                 doc.id === activeDocId ? (updatedDocument as MarkdownDocument) : doc
@@ -35,7 +45,14 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
 
     return (
         <DocumentsContext.Provider
-            value={{ documents, activeDocument, changeActiveDocument, changeUpdatedDocument, saveDocument }}
+            value={{
+                documents,
+                activeDocument,
+                hasSavedDoc,
+                changeActiveDocument,
+                changeUpdatedDocument,
+                saveDocument
+            }}
         >
             {children}
         </DocumentsContext.Provider>
