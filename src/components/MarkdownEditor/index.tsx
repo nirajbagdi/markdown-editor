@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useDocumentsCtx } from 'context';
+import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg';
 import styles from 'styles/components/markdown_editor.module.scss';
 import utilStyles from 'styles/components/utils.module.scss';
-import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg';
 
 type Props = {};
 
@@ -14,7 +14,9 @@ const MarkdownEditor: React.FC<Props> = () => {
     const documentsCtx = useDocumentsCtx();
 
     const handleMarkdownTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setMarkdownText(event.target!.value);
+        const updatedDocText = event.target.value;
+        setMarkdownText(updatedDocText);
+        documentsCtx.changeUpdatedDocument({ content: updatedDocText });
     };
 
     useEffect(() => {

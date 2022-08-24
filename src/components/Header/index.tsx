@@ -16,6 +16,16 @@ const Header: React.FC<Props> = ({ showMenu, toggleShowMenu }) => {
 
     const classes = [styles.header, showMenu ? styles.open : ''];
 
+    const handleDocumentNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const updatedDocName = event.target.value;
+        setDocumentName(updatedDocName);
+        documentsCtx.changeUpdatedDocument({ name: updatedDocName });
+    };
+
+    const handleActionDocumentSave = () => {
+        documentsCtx.saveDocument();
+    };
+
     useEffect(() => {
         setDocumentName(documentsCtx.activeDocument?.name ?? '');
     }, [documentsCtx.activeDocument?.name]);
@@ -31,11 +41,16 @@ const Header: React.FC<Props> = ({ showMenu, toggleShowMenu }) => {
 
                 <div className={styles.documentName}>
                     <label htmlFor="documentName">Document Name</label>
-                    <input type="text" id="documentName" defaultValue={documentName} />
+                    <input
+                        type="text"
+                        id="documentName"
+                        value={documentName}
+                        onChange={handleDocumentNameChange}
+                    />
                 </div>
             </div>
 
-            <DocumentActions />
+            <DocumentActions onDocumentSave={handleActionDocumentSave} />
         </header>
     );
 };
