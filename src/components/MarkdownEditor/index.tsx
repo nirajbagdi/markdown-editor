@@ -4,7 +4,6 @@ import remarkGfm from 'remark-gfm';
 import { useDocumentsCtx } from 'context';
 import { PreviewButton } from 'components';
 import styles from 'styles/components/markdown_editor.module.scss';
-import utilStyles from 'styles/components/utils.module.scss';
 
 type Props = {};
 
