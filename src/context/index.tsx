@@ -13,6 +13,7 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     const [activeDocId, setActiveDocId] = useState(documentsData[0].id);
     const [updatedDocument, setUpdatedDocument] = useState<MarkdownDocument | null>(null);
     const [hasSavedDoc, setHasSavedDoc] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     const activeDocument = documents.find(doc => doc.id === activeDocId) ?? null;
     let toastTimer: NodeJS.Timeout | null = null;
@@ -22,6 +23,12 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     }, [activeDocument]);
 
     const changeActiveDocument = (docId: string) => setActiveDocId(docId);
+
+    const changeUpdatedDocument = (dataObj: MarkdownDocumentOptional) =>
+        setUpdatedDocument(prevDocData => ({ ...(prevDocData as MarkdownDocument), ...dataObj }));
+
+    const closeDeleteModal = () => setIsDeleting(false);
+    const showDeleteModal = () => setIsDeleting(true);
 
     const saveDocument = () => {
         setDocuments(currDocs => {
@@ -35,8 +42,9 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
         toastTimer = setTimeout(() => setHasSavedDoc(false), 3000);
     };
 
-    const changeUpdatedDocument = (dataObj: MarkdownDocumentOptional) => {
-        setUpdatedDocument(prevDocData => ({ ...(prevDocData as MarkdownDocument), ...dataObj }));
+    const deleteDocument = () => {
+        setDocuments(currDocs => currDocs.filter(doc => doc.id !== activeDocId));
+        closeDeleteModal();
     };
 
     return (
@@ -45,9 +53,13 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
                 documents,
                 activeDocument,
                 hasSavedDoc,
+                isDeleting,
                 changeActiveDocument,
                 changeUpdatedDocument,
-                saveDocument
+                saveDocument,
+                deleteDocument,
+                showDeleteModal,
+                closeDeleteModal
             }}
         >
             {children}

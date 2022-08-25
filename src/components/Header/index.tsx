@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDocumentsCtx } from 'context';
 import { ReactComponent as IconDocument } from 'assets/icon-document.svg';
-import { HamburgerButton, DocumentActions } from 'components';
+import { HamburgerButton, DocumentActions, DeleteModal } from 'components';
 import styles from 'styles/components/header.module.scss';
 import utilStyles from 'styles/components/utils.module.scss';
 
@@ -26,32 +26,48 @@ const Header: React.FC<Props> = ({ showMenu, toggleShowMenu }) => {
         documentsCtx.saveDocument();
     };
 
+    const handleActionDocumentDelete = () => {
+        documentsCtx.showDeleteModal();
+    };
+
     useEffect(() => {
         setDocumentName(documentsCtx.activeDocument?.name ?? '');
     }, [documentsCtx.activeDocument?.name]);
 
     return (
-        <header className={classes.join(' ')}>
-            <HamburgerButton onToggle={toggleShowMenu} />
+        <>
+            {documentsCtx.isDeleting && (
+                <DeleteModal
+                    onModalClose={documentsCtx.closeDeleteModal}
+                    onConfirmDelete={documentsCtx.deleteDocument}
+                />
+            )}
 
-            <h1 className={utilStyles.headingSans}>Markdown</h1>
+            <header className={classes.join(' ')}>
+                <HamburgerButton onToggle={toggleShowMenu} />
 
-            <div className={styles.documentInfo}>
-                <IconDocument />
+                <h1 className={utilStyles.headingSans}>Markdown</h1>
 
-                <div className={styles.documentName}>
-                    <label htmlFor="documentName">Document Name</label>
-                    <input
-                        type="text"
-                        id="documentName"
-                        value={documentName}
-                        onChange={handleDocumentNameChange}
-                    />
+                <div className={styles.documentInfo}>
+                    <IconDocument />
+
+                    <div className={styles.documentName}>
+                        <label htmlFor="documentName">Document Name</label>
+                        <input
+                            type="text"
+                            id="documentName"
+                            value={documentName}
+                            onChange={handleDocumentNameChange}
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <DocumentActions onDocumentSave={handleActionDocumentSave} />
-        </header>
+                <DocumentActions
+                    onDocumentSave={handleActionDocumentSave}
+                    onDocumentDelete={handleActionDocumentDelete}
+                />
+            </header>
+        </>
     );
 };
 

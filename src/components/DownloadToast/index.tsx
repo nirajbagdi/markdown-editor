@@ -8,9 +8,11 @@ type Props = {};
 const DownloadToast: React.FC<Props> = () => {
     const documentsCtx = useDocumentsCtx();
 
-    const fullFileName = `${documentsCtx.activeDocument!.name}.md`;
+    if (!documentsCtx.activeDocument) return null;
 
-    const markdownFile = new Blob([documentsCtx.activeDocument!.content], { type: 'text/markdown' });
+    const fullFileName = `${documentsCtx.activeDocument.name}.md`;
+
+    const markdownFile = new Blob([documentsCtx.activeDocument.content], { type: 'text/markdown' });
     const fileDownloadPath = URL.createObjectURL(markdownFile);
 
     return (
