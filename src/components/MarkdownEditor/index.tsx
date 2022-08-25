@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useDocumentsCtx } from 'context';
-import { ReactComponent as IconShowPreview } from 'assets/icon-show-preview.svg';
+import { PreviewButton } from 'components';
 import styles from 'styles/components/markdown_editor.module.scss';
 import utilStyles from 'styles/components/utils.module.scss';
 
@@ -10,6 +10,7 @@ type Props = {};
 
 const MarkdownEditor: React.FC<Props> = () => {
     const [markdownText, setMarkdownText] = useState('');
+    const [isPreviewMode, setIsPreviewMode] = useState(false);
 
     const documentsCtx = useDocumentsCtx();
 
@@ -19,15 +20,20 @@ const MarkdownEditor: React.FC<Props> = () => {
         documentsCtx.changeUpdatedDocument({ content: updatedDocText });
     };
 
+    const handlePreviewToggle = () => {
+        setIsPreviewMode(currMode => !currMode);
+    };
+
     useEffect(() => {
         setMarkdownText(documentsCtx.activeDocument?.content ?? '');
     }, [documentsCtx.activeDocument?.content]);
 
     return (
-        <div className={styles.grid}>
+        <div className={`${styles.grid} ${isPreviewMode ? styles.previewOnly : ''}`}>
             <div className={styles.col1}>
                 <div className={styles.colHeader}>
                     <span>Markdown</span>
+                    <PreviewButton onClick={handlePreviewToggle} />
                 </div>
 
                 <div className={styles.editor}>
@@ -38,10 +44,7 @@ const MarkdownEditor: React.FC<Props> = () => {
             <div className={styles.col2}>
                 <div className={styles.colHeader}>
                     <span>Preview</span>
-
-                    <button className={utilStyles.btnTransparent}>
-                        <IconShowPreview />
-                    </button>
+                    <PreviewButton onClick={handlePreviewToggle} />
                 </div>
 
                 <div className={styles.preview}>

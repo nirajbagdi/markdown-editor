@@ -6,11 +6,32 @@
 
     .col1 {
         border-right: 2px solid #35393f;
+
+        .colHeader button {
+            display: none;
+
+            // prettier-ignore
+            @include mobile { display: block; }
+        }
     }
 
     .col2 {
         @include mobile {
             display: none;
+        }
+    }
+
+    &.previewOnly {
+        .col1 {
+            display: none;
+        }
+
+        .col2 {
+            grid-column: 1/-1;
+
+            @include mobile {
+                display: block;
+            }
         }
     }
 
