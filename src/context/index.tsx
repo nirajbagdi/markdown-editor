@@ -48,7 +48,9 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     };
 
     const addNewDocument = () => {
-        setDocuments(currDocs => [...currDocs, new MarkdownDocument()]);
+        const newDocument = new MarkdownDocument();
+        setDocuments(currDocs => [...currDocs, newDocument]);
+        setActiveDocId(newDocument.id);
     };
 
     return (
