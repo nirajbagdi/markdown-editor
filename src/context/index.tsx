@@ -24,19 +24,15 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
     const changeActiveDocument = (docId: string) => setActiveDocId(docId);
 
     const saveDocument = () => {
-        setHasSavedDoc(
-            updatedDocument?.content !== activeDocument?.content ||
-                updatedDocument?.name !== activeDocument?.name
-        );
-
-        if (toastTimer !== null) clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => setHasSavedDoc(false), 4000);
-
         setDocuments(currDocs => {
             return currDocs.map(doc =>
                 doc.id === activeDocId ? (updatedDocument as MarkdownDocument) : doc
             );
         });
+
+        setHasSavedDoc(true);
+        if (toastTimer !== null) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => setHasSavedDoc(false), 3000);
     };
 
     const changeUpdatedDocument = (dataObj: MarkdownDocumentOptional) => {
