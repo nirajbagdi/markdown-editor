@@ -53,6 +53,11 @@
 
 .documentsList {
     list-style: none;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .documentItem {
         display: flex;

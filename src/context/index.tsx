@@ -47,6 +47,10 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
         closeDeleteModal();
     };
 
+    const addNewDocument = () => {
+        setDocuments(currDocs => [...currDocs, new MarkdownDocument()]);
+    };
+
     return (
         <DocumentsContext.Provider
             value={{
@@ -59,7 +63,8 @@ export const DocumentsProvider: React.FC<Props> = ({ children }) => {
                 saveDocument,
                 deleteDocument,
                 showDeleteModal,
-                closeDeleteModal
+                closeDeleteModal,
+                addNewDocument
             }}
         >
             {children}

@@ -11,6 +11,7 @@ export type ContextState = {
     deleteDocument: () => void;
     closeDeleteModal: () => void;
     showDeleteModal: () => void;
+    addNewDocument: () => void;
 };
 
 export const initialState: ContextState = {
@@ -23,5 +24,6 @@ export const initialState: ContextState = {
     saveDocument: () => {},
     deleteDocument: () => {},
     closeDeleteModal: () => {},
-    showDeleteModal: () => {}
+    showDeleteModal: () => {},
+    addNewDocument: () => {}
 };
