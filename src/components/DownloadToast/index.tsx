@@ -8,14 +8,19 @@ type Props = {};
 const DownloadToast: React.FC<Props> = () => {
     const documentsCtx = useDocumentsCtx();
 
+    const fullFileName = `${documentsCtx.activeDocument!.name}.md`;
+
+    const markdownFile = new Blob([documentsCtx.activeDocument!.content], { type: 'text/markdown' });
+    const fileDownloadPath = URL.createObjectURL(markdownFile);
+
     return (
         <div className={`${styles.downloadToast} ${documentsCtx.hasSavedDoc ? styles.slideIn : ''}`}>
             <p>Your changes have been saved. You can download the file by clicking the link below.</p>
 
-            <button className={utilStyles.btnFill}>
+            <a href={fileDownloadPath} className={utilStyles.btnFill} download={fullFileName}>
                 <IconDocument />
                 <span>Download the File</span>
-            </button>
+            </a>
         </div>
     );
 };

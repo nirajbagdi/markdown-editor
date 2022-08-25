@@ -30,6 +30,12 @@ button, input {
     color: inherit;
 }
 
+a:link {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+}
+
 main {
     transition: $sidebar-transition;
     background-color: #151619;
