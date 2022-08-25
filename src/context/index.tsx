@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { initialState } from 'context/state';
+import useLocalStorage from 'hooks/useLocalStorage';
 import { MarkdownDocument, MarkdownDocumentOptional } from 'models';
 import documentsData from 'data/data.json';
 
@@ -9,8 +10,8 @@ const DocumentsContext = createContext(initialState);
 export const useDocumentsCtx = () => useContext(DocumentsContext);
 
 export const DocumentsProvider: React.FC<Props> = ({ children }) => {
-    const [documents, setDocuments] = useState(documentsData);
-    const [activeDocId, setActiveDocId] = useState(documentsData[0].id);
+    const [documents, setDocuments] = useLocalStorage<MarkdownDocument[]>('documents', documentsData);
+    const [activeDocId, setActiveDocId] = useLocalStorage('docId', documents[0].id);
     const [updatedDocument, setUpdatedDocument] = useState<MarkdownDocument | null>(null);
     const [hasSavedDoc, setHasSavedDoc] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false);
