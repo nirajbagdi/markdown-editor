@@ -9,6 +9,8 @@
     --color-markdown-border: #e4e4e4;
     --color-markdown-head-primary: #35393f;
     --color-markdown-head-secondary: #35393f;
+    --bg-toast: #e4e4e4;
+    --color-toast: #2b2d31;
 }
 
 html[data-theme='dark'] {
@@ -20,6 +22,8 @@ html[data-theme='dark'] {
     --color-markdown-border: #35393f;
     --color-markdown-head-primary: #fff;
     --color-markdown-head-secondary: #a9aaac;
+    --bg-toast: #35393f;
+    --color-toast: #c1c4cb;
 }
 
 html {

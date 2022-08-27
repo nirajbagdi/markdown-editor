@@ -1,7 +1,7 @@
 @import '../base';
 
 .downloadToast {
-    background-color: #35393f;
+    background-color: var(--bg-toast);
     padding: 3.2rem;
     border-radius: 8px;
 
@@ -23,7 +23,7 @@
 
     p {
         font-family: $font-sans-secondary;
-        color: #c1c4cb;
+        color: var(--color-toast);
         line-height: 1.5;
         margin-bottom: 2.4rem;
     }
