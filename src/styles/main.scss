@@ -1,5 +1,27 @@
 @import 'base';
 
+:root {
+    --bg-markdown: #fff;
+    --bg-secondary: #f5f5f5;
+    --bg-markdown-header: #f5f5f5;
+    --color-text-primary: #35393f;
+    --color-text-secondary: #35393f;
+    --color-markdown-border: #e4e4e4;
+    --color-markdown-head-primary: #35393f;
+    --color-markdown-head-secondary: #35393f;
+}
+
+html[data-theme='dark'] {
+    --bg-markdown: #151619;
+    --bg-secondary: #2b2d31;
+    --bg-markdown-header: #1d1f22;
+    --color-text-primary: #c1c4cb;
+    --color-text-secondary: #a9aaac;
+    --color-markdown-border: #35393f;
+    --color-markdown-head-primary: #fff;
+    --color-markdown-head-secondary: #a9aaac;
+}
+
 html {
     box-sizing: border-box;
     font-size: 56.25%;
@@ -38,7 +60,7 @@ a:link {
 
 main {
     transition: $sidebar-transition;
-    background-color: #151619;
+    background-color: var(--bg-markdown);
     min-height: 100vh;
 
     &.collapse {

@@ -5,7 +5,7 @@
     grid-template-columns: 1fr 1fr;
 
     .col1 {
-        border-right: 2px solid #35393f;
+        border-right: 2px solid var(--color-markdown-border);
 
         .colHeader button {
             display: none;
@@ -41,7 +41,7 @@
 }
 
 .colHeader {
-    background-color: #1d1f22;
+    background-color: var(--bg-markdown-header);
     padding: 0.8rem 2.4rem;
     height: 4.8rem;
 
@@ -80,7 +80,7 @@
         outline: none;
         border: none;
         background: transparent;
-        color: #c1c4cb;
+        color: var(--color-text-primary);
         line-height: 1.8;
         resize: none;
 
@@ -93,11 +93,10 @@
 }
 
 .preview {
-    color: #7c8187;
     line-height: 1.8;
     font-family: $font-serif;
 
-    color: #a9aaac;
+    color: var(--color-text-secondary);
     font-size: 1.6rem;
 
     overflow: scroll;
@@ -109,7 +108,7 @@
     /* STYLING MARKDOWN ELEMENTS */
     // prettier-ignore
     h1, h2, h3, h4, h5, h6 {
-        color: $color-white;
+        color: var(--color-markdown-head-primary);
     }
 
     h1 {
@@ -118,7 +117,7 @@
     }
 
     h2 {
-        color: #a9aaac;
+        color: var(--color-markdown-head-secondary);
         font-weight: 300;
         font-size: 3.2rem;
         margin-bottom: 1.2rem;
@@ -196,12 +195,12 @@
     }
 
     blockquote {
-        background-color: #2b2d31;
+        background-color: var(--bg-secondary);
         padding: 2.4rem;
         border-radius: 6px;
         border-left: 5px solid $color-accent;
         font-weight: 500;
-        color: #c1c4cb;
+        color: var(--color-text-primary);
         margin-block: 0.8rem 2.4rem;
 
         p {
@@ -210,7 +209,7 @@
     }
 
     pre {
-        background-color: #2b2d31;
+        background-color: var(--bg-secondary);
         padding: 2.4rem;
         border-radius: 6px;
     }
