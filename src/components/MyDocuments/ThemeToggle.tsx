@@ -1,12 +1,17 @@
-import { useState } from 'react';
-import styles from 'styles/components/aside.module.scss';
+import { useEffect } from 'react';
+import useLocalStorage from 'hooks/useLocalStorage';
 import { ReactComponent as IconSun } from 'assets/icon-light-mode.svg';
 import { ReactComponent as IconMoon } from 'assets/icon-dark-mode.svg';
+import styles from 'styles/components/aside.module.scss';
 
 const ThemeToggle = () => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
 
     const toggleDarkMode = () => setDarkMode(mode => !mode);
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : '');
+    }, [darkMode]);
 
     return (
         <div className={styles.themeToggleBox}>
