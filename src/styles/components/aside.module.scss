@@ -97,12 +97,15 @@
 }
 
 .themeToggleBox {
-    position: absolute;
-    bottom: 3rem;
+    margin-top: auto;
 
     display: flex;
     align-items: center;
     gap: 2rem;
+
+    @include mobile {
+        margin-bottom: 3rem;
+    }
 
     svg {
         fill: #5a6069;
