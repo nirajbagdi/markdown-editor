@@ -97,7 +97,8 @@
 }
 
 .themeToggleBox {
-    margin-top: auto;
+    position: absolute;
+    bottom: 3rem;
 
     display: flex;
     align-items: center;
