@@ -60,8 +60,9 @@
         width: 3.6rem;
         height: 3.6rem;
 
-        &:hover {
-            background-color: #2b2d31;
+        &:hover,
+        &:active {
+            background-color: var(--bg-preview-hover);
         }
     }
 }
