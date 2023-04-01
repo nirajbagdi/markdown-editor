@@ -19,19 +19,27 @@ To get started with the project, follow these steps:
 
 1.  Clone the repository:
 
-`git clone https://github.com/nirajbagdi/markdown-editor.git`
+```sh
+git clone https://github.com/nirajbagdi/markdown-editor.git
+```
 
 2.  Navigate to the project directory:
 
-`cd markdown-editor`
+```sh
+cd markdown-editor
+```
 
 3.  Install the dependencies:
 
-`npm install`
+```sh
+npm install
+```
 
 4.  Run the application:
 
-`npm start`
+```sh
+npm start
+```
 
 The application will be available at [http://localhost:3000](http://localhost:3000/).
 
