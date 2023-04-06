@@ -2,6 +2,8 @@
 
 A simple, yet powerful markdown editor that lets you create, edit, delete, save, view, and download your markdown files. It provides a simple and intuitive interface for creating and editing markdown files, with real-time preview capabilities. The project is built with React and TypeScript.
 
+It's my solution to Frontend-Mentor's [Markdown Editor Challenge](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9)
+
 ## Live Demo
 
 A live demo of the application is hosted at [https://react-markdown-editor-v2.netlify.app/](https://react-markdown-editor-v2.netlify.app/)
