@@ -41,6 +41,11 @@ html {
 	padding: 0;
 }
 
+*::selection {
+	background-color: $color-coral-red;
+	color: #fae0d9;
+}
+
 body {
 	color: $color-white;
 	font: 400 1.8rem $font-sans-primary;
