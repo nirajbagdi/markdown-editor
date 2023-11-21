@@ -12,7 +12,13 @@
 	// prettier-ignore
 	&.open {
 		.hamburger {
-			span { transform-origin: 5.6px; }
+			span { 
+                transform-origin: 5.6px; 
+
+                @include mobile {
+                    transform-origin: 4px;
+                }
+            }
 
 			span:first-child { transform: rotate(45deg); }
 			span:last-child { transform: rotate(-45deg); }
