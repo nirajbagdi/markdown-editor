@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 
 import { useDocumentsCtx } from 'store/context';
@@ -25,9 +25,16 @@ const Header: React.FC<Props> = ({ menuOpen, onMenuToggle }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [hasSaved, setHasSaved] = useState(false);
 
+	const nameInputRef = useRef<HTMLInputElement>(null);
+
 	useEffect(() => {
 		setDocumentName(activeDocument?.name || '');
 	}, [activeDocument?.name]);
+
+	useEffect(() => {
+		if (documentName === 'Untitled Document' || !documentName.trim().length)
+			nameInputRef.current!.select();
+	}, [documentName]);
 
 	const handleDocumentNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setDocumentName(event.target.value);
@@ -80,6 +87,7 @@ const Header: React.FC<Props> = ({ menuOpen, onMenuToggle }) => {
 						<input
 							type="text"
 							id="docName"
+							ref={nameInputRef}
 							value={documentName}
 							onChange={handleDocumentNameChange}
 						/>
