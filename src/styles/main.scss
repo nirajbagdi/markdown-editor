@@ -1,79 +1,80 @@
 @import 'base';
 
 :root {
-    --bg-markdown: #fff;
-    --bg-secondary: #f5f5f5;
-    --bg-markdown-header: #f5f5f5;
-    --color-text-primary: #35393f;
-    --color-text-secondary: #35393f;
-    --color-markdown-border: #e4e4e4;
-    --color-markdown-head-primary: #35393f;
-    --color-markdown-head-secondary: #35393f;
-    --bg-toast: #e4e4e4;
-    --color-toast: #2b2d31;
-    --bg-preview-hover: #e4e4e4;
+	--bg-markdown: #{$color-white};
+	--bg-secondary: #{$color-neutral-gray};
+	--bg-markdown-header: #{$color-neutral-gray};
+	--color-text-primary: #{$color-midnight};
+	--color-text-secondary: #{$color-midnight};
+	--color-markdown-border: #{$color-platinum};
+	--color-markdown-head-primary: #{$color-midnight};
+	--color-markdown-head-secondary: #{$color-midnight};
+	--bg-toast: #{$color-platinum};
+	--color-toast: #{$color-caviar};
+	--bg-preview-hover: #{$color-platinum};
 }
 
 html[data-theme='dark'] {
-    --bg-markdown: #151619;
-    --bg-secondary: #2b2d31;
-    --bg-markdown-header: #1d1f22;
-    --color-text-primary: #c1c4cb;
-    --color-text-secondary: #a9aaac;
-    --color-markdown-border: #35393f;
-    --color-markdown-head-primary: #fff;
-    --color-markdown-head-secondary: #a9aaac;
-    --bg-toast: #35393f;
-    --color-toast: #c1c4cb;
-    --bg-preview-hover: #2b2d31;
+	--bg-markdown: #{$color-dark-moon};
+	--bg-secondary: #{$color-caviar};
+	--bg-markdown-header: #{$color-inkwell};
+	--color-text-primary: #{$color-pearl-blue};
+	--color-text-secondary: #{$color-granite};
+	--color-markdown-border: #{$color-midnight};
+	--color-markdown-head-primary: #{$color-white};
+	--color-markdown-head-secondary: #{$color-granite};
+	--bg-toast: #{$color-midnight};
+	--color-toast: #{$color-pearl-blue};
+	--bg-preview-hover: #{$color-caviar};
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 56.25%;
+	box-sizing: border-box;
+	font-size: 56.25%;
 }
 
-* {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    font-family: $font-sans-primary;
-    font-weight: 400;
-    font-size: 1.8rem;
-    color: $color-white;
+	color: $color-white;
+	font: 400 1.8rem $font-sans-primary;
 
-    overflow: hidden;
+	overflow: hidden;
 }
 
 #root {
-    overflow: hidden;
+	overflow: hidden;
 }
 
-// prettier-ignore
-button, input {
-    font: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
-    color: inherit;
+input,
+button,
+textarea {
+	font: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	color: inherit;
+	background: transparent;
 }
 
-a:link {
-    font: inherit;
-    color: inherit;
-    text-decoration: none;
+.title {
+	font: 700 1.8rem/1.8 $font-sans-secondary;
+	text-transform: uppercase;
+	letter-spacing: 4.2px;
 }
 
 main {
-    transition: $sidebar-transition;
-    background-color: var(--bg-markdown);
-    min-height: 100vh;
+	transition: $sidebar-transition;
+	background-color: var(--bg-markdown);
+	min-height: 100vh;
 
-    &.collapse {
-        transform: translateX(270px);
-    }
+	&.collapse {
+		transform: translateX(270px);
+	}
 }

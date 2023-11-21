@@ -4,17 +4,28 @@ $font-serif: 'Roboto Slab', serif;
 
 $sidebar-transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-$color-accent: #e46643;
 $color-white: #fff;
+$color-neutral-gray: #f5f5f5;
+$color-platinum: #e4e4e4;
+$color-pearl-blue: #c1c4cb;
+$color-granite: #a9aaac;
+$color-deep-violet: #7c8187;
+$color-black-coral: #5a6069;
+$color-midnight: #35393f;
+$color-caviar: #2b2d31;
+$color-dark-moon: #151619;
+$color-inkwell: #1d1f22;
+$color-coral-red: #e46643;
+$color-tangerine: #f39765;
 
 @mixin tablet {
-    @media screen and (max-width: 1024px) {
-        @content;
-    }
+	@media screen and (max-width: 64em) {
+		@content;
+	}
 }
 
 @mixin mobile {
-    @media screen and (max-width: 700px) {
-        @content;
-    }
+	@media screen and (max-width: 43.75em) {
+		@content;
+	}
 }

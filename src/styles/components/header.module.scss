@@ -1,129 +1,129 @@
-@import '../base';
+@import 'styles/base';
 
 .header {
-    background-color: #2b2d31;
+	--gap: 3.6rem;
 
-    display: flex;
-    align-items: center;
-    gap: 3.6rem;
+	background-color: $color-caviar;
 
-    h1 {
-        padding: 0.8rem 2.4rem 0.8rem 0;
-        border-right: 1px solid #5a6069;
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
 
-        font-size: 1.8rem;
-        letter-spacing: 4.2px;
+	// prettier-ignore
+	&.open {
+		.hamburger {
+			span { transform-origin: 5.6px; }
 
-        @include tablet {
-            display: none;
-        }
-    }
+			span:first-child { transform: rotate(45deg); }
+			span:last-child { transform: rotate(-45deg); }
+			span:nth-child(2) { opacity: 0; }
+		}
+	}
 
-    // prettier-ignore
-    &.open {
-        .hamburger {
-            span:first-child { transform: rotate(45deg); }
-            span:last-child { transform: rotate(-45deg); }
-            span:nth-child(2) { opacity: 0; }
-        }
-    }
+	@include mobile {
+		--gap: 2.4rem;
+	}
 
-    @include mobile {
-        gap: 2.4rem;
-    }
-}
+	& > p {
+		padding: 0.8rem 2.4rem 0.8rem 0;
+		border-right: 1px solid $color-black-coral;
 
-.documentInfo {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-
-    .documentName {
-        label {
-            display: block;
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-            color: #7c8187;
-
-            @include mobile {
-                display: none;
-            }
-        }
-
-        input {
-            font-size: 1.6rem;
-
-            width: 100%;
-            padding-block: 0.4rem;
-            border-bottom: 1px solid transparent;
-
-            transition: border 0.3s ease;
-
-            &:hover,
-            &:focus {
-                border-color: $color-accent;
-            }
-        }
-
-        @include mobile {
-            width: 12rem;
-        }
-    }
-}
-
-.documentActions {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
-
-    margin-inline: auto 2.4rem;
-
-    @include mobile {
-        gap: 1.2rem;
-    }
-
-    button:nth-child(2) {
-        @include mobile {
-            padding: 1.2rem 1.4rem;
-            // prettier-ignore
-            span { display: none; }
-        }
-    }
+		@include tablet {
+			display: none;
+		}
+	}
 }
 
 .hamburger {
-    background-color: #35393f;
-    padding: 3.6rem 2.4rem;
+	background-color: $color-midnight;
+	padding: 3.6rem 2.4rem;
 
-    span {
-        display: block;
-        width: 3.6rem;
-        height: 2px;
+	span {
+		background-color: $color-white;
 
-        background-color: $color-white;
+		display: block;
+		width: 3.6rem;
+		height: 2px;
 
-        transform-origin: 6px;
-        transition: all 0.5s ease;
+		transition: all 0.5s ease;
 
-        // prettier-ignore
-        &:not(:last-child) { margin-bottom: 0.6rem; }
+		&:not(:last-child) {
+			margin-bottom: 0.6rem;
+		}
+	}
 
-        @include mobile {
-            transform-origin: 4px;
-        }
-    }
+	// prettier-ignore
+	&:hover {
+		span:first-child { transform: rotate(0.5turn); }
+		span:last-child { transform: rotate(-0.5turn); }
+		span:nth-child(2) { opacity: 0; }
+	}
 
-    // prettier-ignore
-    &:hover {
-        span:first-child { transform: translate(65%, 0) rotate(0.5turn); }
-        span:last-child { transform: translate(65%, 0) rotate(-0.5turn); }
-        span:nth-child(2) { opacity: 0; }
-    }
+	@include mobile {
+		padding: 2.4rem 2rem;
 
-    @include mobile {
-        padding: 2.4rem 2rem;
+		span {
+			width: 3rem;
+		}
+	}
+}
 
-        // prettier-ignore
-        span { width: 3rem; }
-    }
+.documentInfo {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+
+	.documentName {
+		label {
+			display: block;
+			font-size: 1.4rem;
+			margin-bottom: 0.2rem;
+			color: $color-deep-violet;
+
+			@include mobile {
+				display: none;
+			}
+		}
+
+		input {
+			font-size: 1.6rem;
+
+			width: 100%;
+			padding-block: 0.4rem;
+			border-bottom: 1px solid transparent;
+
+			transition: border 0.3s ease;
+
+			&:hover,
+			&:focus {
+				border-bottom-color: $color-coral-red;
+			}
+		}
+
+		@include mobile {
+			width: 12rem;
+		}
+	}
+}
+
+.documentActions {
+	--gap: 1.6rem;
+
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+
+	margin-inline: auto 2.4rem;
+
+	@include mobile {
+		--gap: 1.2rem;
+
+		button:nth-child(2) {
+			padding: 1.2rem 1.4rem;
+
+			span {
+				display: none;
+			}
+		}
+	}
 }

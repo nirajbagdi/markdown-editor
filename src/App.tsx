@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import { Header, MarkdownEditor, MyDocuments, DownloadToast } from 'components';
+import { Header, Sidebar, Editor } from 'components';
 
 const App = () => {
-    const [showMenu, setShowMenu] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleShowMenu = () => setShowMenu(show => !show);
+	const toggleMenuOpen = () => setMenuOpen(open => !open);
 
-    return (
-        <>
-            <MyDocuments expand={showMenu} />
-            <DownloadToast />
+	return (
+		<>
+			<Sidebar expand={menuOpen} />
 
-            <main className={showMenu ? 'collapse' : ''}>
-                <Header showMenu={showMenu} toggleShowMenu={toggleShowMenu} />
-                <MarkdownEditor />
-            </main>
-        </>
-    );
+			<main className={menuOpen ? 'collapse' : ''}>
+				<Header menuOpen={menuOpen} onMenuToggle={toggleMenuOpen} />
+				<Editor />
+			</main>
+		</>
+	);
 };
 
 export default App;

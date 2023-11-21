@@ -1,11 +1,12 @@
 import { createRoot } from 'react-dom/client';
-import { DocumentsProvider } from 'context';
+import DocumentsProvider from 'store';
+import App from 'App';
 import 'styles/main.scss';
-import App from './App';
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
+const root = createRoot(document.getElementById('root')!);
+
 root.render(
-    <DocumentsProvider>
-        <App />
-    </DocumentsProvider>
+	<DocumentsProvider>
+		<App />
+	</DocumentsProvider>
 );

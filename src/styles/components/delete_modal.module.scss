@@ -1,21 +1,21 @@
-@import '../base';
+@import 'styles/base';
 
 .deleteModal {
-    h2 {
-        font-family: $font-serif;
-        color: $color-white;
-        font-size: 3rem;
-        margin-bottom: 0.8rem;
-    }
+	h2 {
+		font-family: $font-serif;
+		color: $color-white;
+		font-size: 3rem;
+		margin-bottom: 0.8rem;
+	}
 
-    p {
-        font-family: $font-sans-secondary;
-        color: #c1c4cb;
-        line-height: 1.5;
-        margin-bottom: 3.2rem;
-    }
+	p {
+		font-family: $font-sans-secondary;
+		color: #c1c4cb;
+		line-height: 1.5;
+		margin-bottom: 3.2rem;
+	}
 
-    button {
-        width: 100%;
-    }
+	button {
+		width: 100%;
+	}
 }

@@ -1,0 +1,41 @@
+@import 'styles/base';
+
+.button {
+	--gap: 0.8rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--gap);
+
+	transition: background-color 0.4s ease;
+
+	&.contained {
+		background-color: $color-coral-red;
+		padding: 1.6rem 2rem;
+		border-radius: 6px;
+
+		&:hover,
+		&:active {
+			background-color: $color-tangerine;
+		}
+	}
+
+	&.transparent {
+		--gap: 0;
+		--dim: 4.8rem;
+
+		width: var(--dim);
+		height: var(--dim);
+		border-radius: 100px;
+
+		&:hover,
+		&:active {
+			background-color: $color-inkwell;
+		}
+
+		@include mobile {
+			--dim: 4.2rem;
+		}
+	}
+}

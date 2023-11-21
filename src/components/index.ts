@@ -1,11 +1,8 @@
-export { default as Header } from './Header';
-export { default as HamburgerButton } from './Header/HamburgerButton';
-export { default as DocumentActions } from './Header/DocumentActions';
-export { default as MyDocuments } from './MyDocuments';
-export { default as DocumentsList } from './MyDocuments/DocumentsList';
-export { default as ThemeToggle } from './MyDocuments/ThemeToggle';
-export { default as Modal } from './Modal';
-export { default as DeleteModal } from './DeleteModal';
-export { default as DownloadToast } from './DownloadToast';
-export { default as MarkdownEditor } from './MarkdownEditor';
-export { default as PreviewButton } from './MarkdownEditor/PreviewButton';
+export { default as Header } from './Markdown/Header';
+export { default as Sidebar } from './Markdown/Sidebar';
+export { default as Editor } from './Markdown/Editor';
+export { default as DeleteModal } from './Markdown/DeleteModal';
+export { default as DownloadToast } from './Markdown/DownloadToast';
+
+export { default as Button } from './UI/Button';
+export { default as Modal } from './UI/Modal';
