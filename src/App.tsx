@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header, Sidebar, Editor } from 'components';
 
 const App = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const toggleMenuOpen = () => setMenuOpen(open => !open);
+
+	// Toggle the menu with 'Escape' key
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => event.key === 'Escape' && toggleMenuOpen();
+		window.addEventListener('keydown', handleKeyDown);
+		return () => window.removeEventListener('keydown', handleKeyDown);
+	}, []);
 
 	return (
 		<>
