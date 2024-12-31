@@ -12,50 +12,50 @@ const DEBOUNCE_DELAY = 1000;
 const cx = classNames.bind(styles);
 
 const Editor = () => {
-	const { activeDocument, saveDocument } = useDocumentsCtx();
+    const { activeDocument, saveDocument } = useDocumentsCtx();
 
-	const [markdownText, setMarkdownText] = useState('');
-	const [isPreviewMode, setIsPreviewMode] = useState(false);
+    const [markdownText, setMarkdownText] = useState('');
+    const [isPreviewMode, setIsPreviewMode] = useState(false);
 
-	useEffect(() => {
-		setMarkdownText(activeDocument?.content || '');
-	}, [activeDocument?.content]);
+    useEffect(() => {
+        setMarkdownText(activeDocument?.content || '');
+    }, [activeDocument?.content]);
 
-	useEffect(() => {
-		if (activeDocument && activeDocument.content !== markdownText) {
-			const timeout = setTimeout(
-				() => saveDocument({ ...activeDocument, content: markdownText }),
-				DEBOUNCE_DELAY
-			);
+    useEffect(() => {
+        if (activeDocument && activeDocument.content !== markdownText) {
+            const timeout = setTimeout(
+                () => saveDocument({ ...activeDocument, content: markdownText }),
+                DEBOUNCE_DELAY
+            );
 
-			return () => clearTimeout(timeout);
-		}
+            return () => clearTimeout(timeout);
+        }
 
-		// eslint-disable-next-line
-	}, [activeDocument, markdownText]);
+        // eslint-disable-next-line
+    }, [activeDocument, markdownText]);
 
-	const togglePreviewMode = () => setIsPreviewMode(preview => !preview);
+    const togglePreviewMode = () => setIsPreviewMode((preview) => !preview);
 
-	const handleMarkdownTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-		const updatedText = event.target.value;
-		setMarkdownText(updatedText);
-	};
+    const handleMarkdownTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const updatedText = event.target.value;
+        setMarkdownText(updatedText);
+    };
 
-	return (
-		<div className={cx({ grid: true, previewOnly: isPreviewMode })}>
-			<MarkdownColumn title="Markdown" onPreviewToggle={togglePreviewMode}>
-				<div className={styles.editor}>
-					<textarea value={markdownText} onChange={handleMarkdownTextChange} />
-				</div>
-			</MarkdownColumn>
+    return (
+        <div className={cx({ grid: true, previewOnly: isPreviewMode })}>
+            <MarkdownColumn title="Markdown" onPreviewToggle={togglePreviewMode}>
+                <div className={styles.editor}>
+                    <textarea value={markdownText} onChange={handleMarkdownTextChange} />
+                </div>
+            </MarkdownColumn>
 
-			<MarkdownColumn title="Preview" onPreviewToggle={togglePreviewMode}>
-				<div className={styles.preview}>
-					<ReactMarkdown children={markdownText} remarkPlugins={[remarkGfm]} />
-				</div>
-			</MarkdownColumn>
-		</div>
-	);
+            <MarkdownColumn isPreviewMode={isPreviewMode} title="Preview" onPreviewToggle={togglePreviewMode}>
+                <div className={styles.preview}>
+                    <ReactMarkdown children={markdownText} remarkPlugins={[remarkGfm]} />
+                </div>
+            </MarkdownColumn>
+        </div>
+    );
 };
 
 export default Editor;
