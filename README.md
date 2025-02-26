@@ -1,52 +1,44 @@
 # Markdown Editor
 
-A simple, yet powerful markdown editor that lets you create, edit, delete, save, view, and download your markdown files. It provides a simple and intuitive interface for creating and editing markdown files, with real-time preview capabilities. The project is built with React and TypeScript.
+A **simple and intuitive markdown editor** with real-time preview. It allows you to create, edit, save, and download markdown files while keeping the interface simple and user-friendly.
 
-It's my solution to Frontend-Mentor's [Markdown Editor Challenge](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9)
+This project is my solution to **Frontend Mentor's [Markdown Editor Challenge](https://www.frontendmentor.io/challenges/inbrowser-markdown-editor-r16TrrQX9)**.
 
-## Live Demo
-
-A live demo of the application is hosted at [https://react-markdown-editor-v2.netlify.app/](https://react-markdown-editor-v2.netlify.app/)
+## 🔗 Live Demo
+[Try it here](https://react-markdown-editor-v2.netlify.app/)
 
 ## Features
 
--   Create, edit, and delete markdown files
--   Save markdown files to local storage
--   View and download markdown files
--   Dark mode support
+### ✅ Core Functionality
 
-## Getting Started
+- Write and edit markdown with a live preview.
+- Create, save, and delete markdown files.
+- Download markdown files for offline use.
 
-To get started with the project, follow these steps:
+### 🌙 Extras
 
-1.  Clone the repository:
+- Dark mode support.
+- Saves files in local storage for easy access.
+
+## Screenshots
+
+![Screenshot 2025-02-26 170120](https://github.com/user-attachments/assets/ed0c56fa-7df6-43e0-97a8-d5f03a014334)
+![Screenshot 2025-02-26 170140](https://github.com/user-attachments/assets/b160c895-5c37-4e13-8535-b94a9d07aeb4)
+
+
+## Tech Stack
+
+- **React** – Component-based UI.
+- **TypeScript** – Strongly typed JavaScript for better maintainability.
+- **[React-Markdown](https://github.com/remarkjs/react-markdown)** – Renders markdown inside React components.
+
+## Installation
 
 ```sh
 git clone https://github.com/nirajbagdi/markdown-editor.git
-```
 
-2.  Navigate to the project directory:
-
-```sh
-cd markdown-editor
-```
-
-3.  Install the dependencies:
-
-```sh
 npm install
-```
 
-4.  Run the application:
-
-```sh
 npm start
 ```
-
-The application will be available at [http://localhost:3000](http://localhost:3000/).
-
-## Built With
-
--   [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
--   [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
--   [React-Markdown](https://github.com/remarkjs/react-markdown) - A markdown component for React.
+Runs on http://localhost:3000
